@@ -1,0 +1,36 @@
+{
+  "name": "pi-smart-thermostat",
+  "version": "1.0.0",
+  "description": "Smart Thermostat using a raspberry pi and a relay",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biskis/pi-smart-thermostat.git"
+  },
+  "keywords": [
+    "raspberry",
+    "raspberry pi",
+    "pi",
+    "smart",
+    "thermostat"
+  ],
+  "author": "Daniel Dudas <danimdy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biskis/pi-smart-thermostat/issues"
+  },
+  "homepage": "https://github.com/biskis/pi-smart-thermostat#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "config": "^1.26.1",
+    "connect-timeout": "^1.9.0",
+    "express": "^4.15.3",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "morgan": "^1.8.2",
+    "node-json-db": "^0.7.3",
+    "pigpio": "^0.6.0",
+    "util": "^0.10.3"
+  }
+}
