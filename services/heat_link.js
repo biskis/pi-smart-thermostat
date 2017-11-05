@@ -7,9 +7,6 @@ var Gpio = require('pigpio').Gpio;
 
 var relay = null;
 
-// var JsonDB = require('node-json-db');
-// var db = new JsonDB("piSmartThermostatControl", true, false);
-
 var HeatLinkService = {
 
     _getRelayGpioPin: function() {
@@ -20,15 +17,12 @@ var HeatLinkService = {
     },
 
     turnOn: function () {
-        this._getRelayGpioPin().digitalWrite(1);
-
-        // db.push("/master_relay", "1");
+        this._getRelayGpioPin().digitalWrite(config.get("relay.on"));
 
         return "1";
     },
     turnOff: function(){
-        this._getRelayGpioPin().digitalWrite(0);
-        // db.push("/master_relay", "0");
+        this._getRelayGpioPin().digitalWrite(config.get("relay.off"));
 
         return "0";
     },

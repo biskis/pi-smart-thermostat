@@ -1,7 +1,11 @@
 module.exports = {
     "mode": "heatlink",
     'gpio': {
-        "heatlink": 11
+        "heatlink": 17
+    },
+    "relay": {
+        "on": 0,
+        "off": 1
     },
     "server": {
         port: 8089
