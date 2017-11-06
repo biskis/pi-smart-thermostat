@@ -41,7 +41,7 @@ var ThermostatService = {
 
     checkIfShouldRun: function () {
         var currentTemperature = this.getTemperature();
-        var desireTemperature = config.get("desire_temp");
+        var desireTemperature = this.getDesireTemperature();
 
         console.log("Now is: " + currentTemperature + " and we want to be: " + desireTemperature);
 
