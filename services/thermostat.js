@@ -4,6 +4,7 @@
 var config = require("config");
 var moment = require('moment-timezone');
 var sensor = require('node-dht-sensor');
+var http = require('http');
 
 var JsonDB = require('node-json-db');
 var db = new JsonDB("piSmartThermostat", true, false);
@@ -13,6 +14,17 @@ var ThermostatService = {
 
     getTemperature: function () {
         return parseInt(db.getData("/temp"));
+    },
+    getDesireTemperature: function () {
+        var desireTemp = 0;
+        var schedule = config.get("schedule");
+        var todaySchedule = schedule[moment().isoWeekday()];
+        for(hour in todaySchedule) {
+            if(hour <= moment().hour() ) {
+                desireTemp = todaySchedule[hour];
+            }
+        }
+        return desireTemp;
     },
 
     updateSensorData: function(){
@@ -31,6 +43,8 @@ var ThermostatService = {
         var currentTemperature = this.getTemperature();
         var desireTemperature = config.get("desire_temp");
 
+        console.log("Now is: " + currentTemperature + " and we want to be: " + desireTemperature);
+
         if(currentTemperature < desireTemperature) {
             //Start heatlink
             this.callHeatLink('on');
@@ -42,6 +56,7 @@ var ThermostatService = {
     },
 
     callHeatLink: function(onOff) {
+        console.log("Turn heatlink to " + onOff);
         var options = config.get("heatlink");
         options.path += onOff;
 
