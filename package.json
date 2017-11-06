@@ -31,6 +31,7 @@
     "morgan": "^1.8.2",
     "node-json-db": "^0.7.3",
     "pigpio": "^0.6.0",
-    "util": "^0.10.3"
+    "util": "^0.10.3",
+    "node-dht-sensor": "0.0.32"
   }
 }

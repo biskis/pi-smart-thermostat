@@ -5,3 +5,4 @@ var config = require('config');
 var Promise = require("bluebird");
 
 module.exports.HeatLinkService				= require("./heat_link");
+module.exports.ThermostatService		    = require("./thermostat");
