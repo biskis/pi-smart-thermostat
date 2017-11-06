@@ -11,7 +11,7 @@ module.exports = {
     "heatlink": {
         "hostname": "192.168.86.101",
         "port": 8089,
-        "path": '/api/v1/heat_link',
+        "path": '/api/v1/heat_link/',
         "method": "GET",
         "headers": {
             'Content-Type': 'application/json'
@@ -41,12 +41,17 @@ module.exports = {
         },
         6: {
             0: 16,
-            7: 23
+            7: 23,
+            10: 22
         },
         7: {
             0: 16,
-            7: 23
-        },
+            7: 23,
+            9: 20,
+            13: 22,
+            17: 20,
+            21: 23
+        }
     },
     "server": {
         port: 8090

@@ -57,8 +57,13 @@ var ThermostatService = {
 
     callHeatLink: function(onOff) {
         console.log("Turn heatlink to " + onOff);
-        var options = config.get("heatlink");
-        options.path += onOff;
+        var options = {
+            "hostname": config.get("heatlink.hostname"),
+            "port": config.get("heatlink.port"),
+            "path": config.get("heatlink.path") + onOff,
+            "method": config.get("heatlink.method"),
+            "headers": config.get("heatlink.headers")
+        };
 
         http.request(options, function(res) {
             console.log('STATUS: ' + res.statusCode);
