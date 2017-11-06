@@ -16,4 +16,6 @@ var execute = module.exports.execute = function() {
 
 };
 
-execute();
+if(config.get("mode") === "thermostat") {
+    execute();
+}
