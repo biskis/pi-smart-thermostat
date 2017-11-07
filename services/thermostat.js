@@ -15,6 +15,9 @@ var ThermostatService = {
     getTemperature: function () {
         return parseInt(db.getData("/temp"));
     },
+    getHumidity: function () {
+        return parseInt(db.getData("/humidity"));
+    },
     getDesireTemperature: function () {
         var desireTemp = 0;
         var schedule = config.get("schedule");

@@ -6,6 +6,7 @@ var Services = require('../../../services');
 
 var apiRoutes = {
     heatLink		: require('./heat_link'),
+    thermostat		: require('./thermostat'),
 
     successHandler: function(req, res, next) {
         res.render = function(data) {
@@ -48,6 +49,10 @@ module.exports = function() {
     app.get('/heat_link/on',											        apiRoutes.heatLink.turnOn);
     app.get('/heat_link/off',											        apiRoutes.heatLink.turnOff);
     app.get('/heat_link/status',											    apiRoutes.heatLink.getStatus);
+
+    app.get('/thermostat/temperature',											apiRoutes.thermostat.getTemperature);
+    app.get('/thermostat/humidity',											    apiRoutes.thermostat.getHumidity);
+    app.get('/thermostat/desire_temp',											apiRoutes.thermostat.getDesireTemperature);
 
     app.use(apiRoutes.errorHandler);
 
